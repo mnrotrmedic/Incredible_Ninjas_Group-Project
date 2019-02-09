@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css?family=Staatliches|Varela+Round" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <title>When I Was 18</title>
+</head>
+
+<body>
+
+    <!-- Start of nav bar class and Divs -->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark" id="navBar">
+        <div class="col-xl-10 col-lg-9 col-md-10 col-sm-9 col-8">
+            <!-- Title and our page image-icon. Inside the sticky navbar but not a link. -->
+            <span class="navbar-brand mb-0 h1 col-9"><Span class="page-icon mr-2" href="index.html"><img src="assets/images/logo.png"
+                        width="auto" height="15" alt="" id="logoImg"></Span></span>
+        </div>
+
+        <div class="col-xl-2 col-lg-3 col-md-2 col-sm-3 col-4">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">HOME<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron bg-transparent">
+                    <h1 class="display-4 font-weight-bold text-white animated infinite pulse delay-1s" id="welcomeText"><span
+                            id="heyThere">HEY THERE,</span>
+                        MUSIC LOVER.</h1>
+                    <br><br>
+                    <p class="text-left">HAVE YOU EVER HEARD A SONG AND THOUGHT <span class="font-weight-bold" id="heavyText">
+                            THIS TAKES ME BACK TO THE GOOD OLD
+                            DAYS'?</span>
+
+                        <br><br>
+
+                        TELL US WHO YOU ARE AND JUST ADD A LINK TO YOUR <span class="font-weight-bold" id="heavyText">MOST
+                            RECENT PHOTO</span> AND WE'LL BRING YOU THE JAMS
+                        THAT BRING ON THE NOSTALGIA!</p>
+
+                </div>
+                <!-- End of first row -->
+            </div>
+        </div>
+
+        <!-- User input -->
+        <div class="row">
+            <div class="col">
+                <div class="user-upload">
+                    <form class="needs-validation">
+                        <div class="form-group">
+                            <input type="name" class="form-control form-control-lg col-xl-5 col-lg-7 col-md-8 col-sm-10 col-12 mb-4"
+                                id="user-name" placeholder="ENTER YOUR NAME" required>
+                            <div class="invalid-feedback">
+                                Please enter your name!
+                            </div>
+                        </div>
+
+                        <div class="form-group form-inline">
+                            <input type="text" class="form-control form-control-lg col-xl-5 col-lg-7 col-md-8 col-sm-10 col-12 mb-4"
+                                id="user-link" placeholder="ENTER THE LINK">
+                            <div class="invalid-feedback">
+                                Please provide a link!
+                            </div>
+
+                            <div class="col-xl-1 col-lg-6 col-md-7 col-sm-9 col-9 mb-4 ml-4 more-options"><span class="user-or">OR</span></div>
+
+                            <input type="number" class="form-control form-control-lg col-xl-5 col-lg-7 col-md-8 col-sm-10 col-12 mb-4"
+                                id="user-enter-age" placeholder="MANUALLY ENTER YOUR AGE">
+                            <p id="warningText">*IF YOU DO BOTH, WE'RE GONNA GO WITH THE PIC DUDE.</p>
+
+                        </div>
+
+                        <!-- Submit button for image -->
+                        <button id="tunesBtn" class="btn btn-success btn-lg get-music mb-4" type="submit">GET MY TUNES!</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Under 18 -->
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="modal fade" id="underageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div tabindex="-1" data-micromodal-close>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">WHOA BUDDY!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    LOOKS LIKE YOU'RE UNDER 18, KID. YOU'RE TOO YOUNG FOR NOSTALGIA!
+
+                                    <br><br>
+                                    <img src="assets/images/baby.png" id="modalImage">
+                                    <br><br>
+
+                                    OR MAYBE YOU HAVE A YOUTHFUL APPEARANCE? IF SO, ENTER YOUR AGE MANUALLY!
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for no Name -->
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div tabindex="-1" data-micromodal-close>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">WHOA BUDDY!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    LOOKS LIKE YOU FORGOT TO ADD YOUR NAME!
+                                    <br><br>
+                                    <img src="assets/images/nametag.png" id="modalImage">
+                                    <br><br>
+                                    PLEASE ADD YOUR NAME AND WE'LL GRAB YOUR TUNES!
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for no Link -->
+    <div class="container">
+        <div class="col">
+            <div class="row">
+                <div class="modal fade" id="linkModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div tabindex="-1" data-micromodal-close>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">WHOA BUDDY!</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    LOOKS LIKE YOU FORGOT TO ADD A LINK!
+                                    <br><br>
+                                    <img src="assets/images/selfie.png" id="modalImage">
+                                    <br><br>
+                                    PLEASE ADD A LINK TO YOUR MOST RECENT PIC AND WE'LL GRAB YOUR TUNES!
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Javascript References -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+
+    <!-- Script File -->
+    <script src="assets/script/script.js"></script>
+</body>
+
+</html>
